@@ -1,0 +1,19 @@
+{
+    "name": "com.houraiteahouse.networking.Runtime",
+    "references": [
+        "Discord",
+        "com.houraiteahouse.core.Runtime",
+        "com.houraiteahouse.lz4.Runtime",
+        "com.facepunch.steamworks.Runtime",
+        "com.houraiteahouse.serialization"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
