@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Buoyancy : MonoBehaviour
 {
-    
-    // https://www.youtube.com/watch?v=eL_zHQEju8s tutorial im drawing inspiration from
 
     private Vector3 M0;
 
@@ -48,43 +46,27 @@ public class Buoyancy : MonoBehaviour
     void Update()
     {
         //simple buoyancy
-        if (transform.position.y < 0)
+        if (transform.TransformPoint(M0).y < 0)
         {
-            body.AddForce(new Vector3(0,transform.position.y*transform.position.y*mass*drag,0));
+            body.AddForce(new Vector3(0,transform.TransformPoint(M0).y*transform.TransformPoint(M0).y*mass*drag,0));
         }
         //righting buoyancy
-        /*if (transform.TransformPoint(M1).y < 0)
-        {
-            body.AddForceAtPosition(new Vector3(0,(d1*d1*(d3+d4)*transform.TransformPoint(M1).y*mass*drag),0), transform.TransformPoint(M1));
-        }
-        if (transform.TransformPoint(M2).y < 0)
-        {
-            body.AddForceAtPosition(new Vector3(0,(d2*d2*(d3+d4)*transform.TransformPoint(M2).y*mass*drag),0), transform.TransformPoint(M2));
-        }
-        if (transform.TransformPoint(M3).y < 0)
-        {
-            body.AddForceAtPosition(new Vector3(0,(d3*d3*(d1+d2)*transform.TransformPoint(M3).y*mass*drag),0), transform.TransformPoint(M3));
-        }
-        if (transform.TransformPoint(M4).y < 0)
-        {
-            body.AddForceAtPosition(new Vector3(0,(d4*d4*(d1+d2)*transform.TransformPoint(M4).y*mass*drag),0), transform.TransformPoint(M4));
-        }*/
-        
+
         if (transform.TransformPoint(M1).y < 0)
         {
-            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M1).y*mass*drag*(float)Math.Sqrt(d1)),0), transform.TransformPoint(M1));
+            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M1).y*mass*drag*d1),0), transform.TransformPoint(M1));
         }
         if (transform.TransformPoint(M2).y < 0)
         {
-            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M2).y*mass*drag*(float)Math.Sqrt(d2)),0), transform.TransformPoint(M2));
+            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M2).y*mass*drag*d2),0), transform.TransformPoint(M2));
         }
         if (transform.TransformPoint(M3).y < 0)
         {
-            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M3).y*mass*drag*(float)Math.Sqrt(d3)),0), transform.TransformPoint(M3));
+            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M3).y*mass*drag*d3),0), transform.TransformPoint(M3));
         }
         if (transform.TransformPoint(M4).y < 0)
         {
-            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M4).y*mass*drag*(float)Math.Sqrt(d4)),0), transform.TransformPoint(M4));
+            body.AddForceAtPosition(new Vector3(0,Math.Abs(transform.TransformPoint(M4).y*mass*drag*d4),0), transform.TransformPoint(M4));
         }
     }
 
