@@ -43,7 +43,7 @@ public class Buoyancy : MonoBehaviour
     }
  
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //simple buoyancy
         if (transform.TransformPoint(M0).y < 0)
