@@ -60,3 +60,8 @@ crashlytics-build.properties
 
 #custom
 /.idea/
+/Assets/Ludiq/Bolt.Core/Generated/
+/Assets/Ludiq/Bolt.Flow/Generated/
+/Assets/Ludiq/Bolt.State/Generated/
+/Assets/Ludiq/Ludiq.Core/Generated/
+/Assets/Ludiq/Ludiq.Graphs/Generated/
