@@ -3,15 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shipsteer : MonoBehaviour
+public class ShipSteer : MonoBehaviour
 {
 
-    public Vector3 windvel;
-    public Vector3 currvel;
+    public Vector3 WindVelocity;
+    public Vector3 CurrentVelocity;
 
-    public Vector3 sailangle;
-    public float sailarea;
-    public float rudderAngle;
+    public Vector3 SailAngle;
+    public float SailArea;
+    public float RudderAngle;
 
     private Rigidbody body;
     
@@ -26,18 +26,18 @@ public class shipsteer : MonoBehaviour
     {
         Vector3 force = new Vector3(0,0,0);
 
-        if (Vector3.Angle(windvel, body.transform.forward) >= 90)
+        if (Vector3.Angle(WindVelocity, body.transform.forward) >= 90)
         {
-            force = Vector3.Project((body.velocity-Vector3.Project(windvel,sailangle.normalized)),body.transform.forward) * sailarea;
+            force = Vector3.Project((body.velocity-Vector3.Project(WindVelocity,SailAngle.normalized)),body.transform.forward) * SailArea;
         }
         else
         {
-            force = Vector3.Project((Vector3.Project(windvel,Vector3.Cross(sailangle,body.transform.up).normalized) - body.velocity ), body.transform.forward) * sailarea;
+            force = Vector3.Project((Vector3.Project(WindVelocity,Vector3.Cross(SailAngle,body.transform.up).normalized) - body.velocity ), body.transform.forward) * SailArea;
         }
         
         
-        body.AddForce(currvel);
+        body.AddForce(CurrentVelocity);
         body.AddForce(force);
-        body.AddTorque(force.magnitude * body.transform.up * rudderAngle);
+        body.AddTorque(force.magnitude * body.transform.up * RudderAngle);
     }
 }
